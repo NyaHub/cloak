@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "lib": [
+      "es2020"
+    ],
+    "module": "NodeNext",
+    "target": "es2020",
+    "types": [
+      "node"
+    ],
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "moduleResolution": "NodeNext",
+    "outDir": "./build",
+  },
+}
