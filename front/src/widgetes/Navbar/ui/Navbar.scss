@@ -1,0 +1,33 @@
+.Navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.linkNav,
+.linkNav-2 {
+    cursor: pointer;
+}
+
+.linkNav-2 {
+    margin-left: 20px;
+}
+
+.btnNav {
+    background: none;
+    border: 1px solid var(--secondory-color);
+    color: var(--primary-color);
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: var(--font-size-m);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.active {
+    background-color: var(--block-color);
+    padding: 10px 16px;
+    border-radius: 8px;
+}

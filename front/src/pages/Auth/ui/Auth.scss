@@ -1,0 +1,58 @@
+.Auth {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 70vh;
+}
+
+.LabelAuth {
+    border-radius: 16px;
+    background: var(--label);
+    color: var(--primary-color);
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-l);
+    border-top: 1px solid var(--secondory-color);
+    border-left: 1px solid var(--secondory-color);
+    border-bottom: 1px solid var(--block-color);
+    border-left: 1px solid var(--block-color);
+}
+
+.inputBlock {
+    display: flex;
+    margin-top: 20px;
+}
+
+.LabelAuth,
+.inputBlock {
+    display: flex;
+    width: 400px;
+}
+
+.input {
+    width: 100%;
+    background: none;
+    padding: 10px 16px;
+    border: none;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border: 1px solid var(--secondory-color);
+    color: var(--primary-color);
+}
+
+.input:focus {
+    outline: none;
+}
+
+.btnLogin {
+    background: var(--btn-background);
+    border: none;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    color: var(--primary-color);
+    padding: 10px 16px;
+    white-space: nowrap;
+}
