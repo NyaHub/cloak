@@ -1,0 +1,39 @@
+.CampaignsBlock {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-top: 30px;
+    color: var(--primary-color);
+}
+
+.nameРeader {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.AllIcon,
+.Iconleft {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.IconBlock {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+}
+
+.PageStatus {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.Iconleft {
+    margin: 0 45px;
+}

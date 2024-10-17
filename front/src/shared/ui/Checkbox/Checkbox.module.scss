@@ -1,0 +1,26 @@
+.checkbox {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: none;
+    padding: 4px;
+    border: 1px solid var(--secondory-color);
+    border-radius: 6px;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+.checkbox.checked {
+    background-color: var(--label);
+}
+
+.checkbox .check {
+    display: none;
+}
+
+.checkbox.checked .check {
+    display: block;
+    color: var(--primary-color);
+}

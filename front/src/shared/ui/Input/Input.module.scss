@@ -1,0 +1,12 @@
+.Input {
+    background: none;
+    border: 1px solid var(--btn-background);
+    border-radius: 8px;
+    padding: 10px 16px;
+    appearance: none;
+    outline: none;
+}
+
+.readonly {
+    opacity: 0.7;
+}

@@ -1,0 +1,11 @@
+.Label {
+  margin-top: 30px;
+}
+
+.title {
+    border-radius: 16px;
+    background: var(--label);
+    color: var(--primary-color);
+    padding: 30px;
+    font-size: var(--font-size-l);
+}
