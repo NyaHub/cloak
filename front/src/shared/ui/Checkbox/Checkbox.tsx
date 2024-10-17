@@ -5,16 +5,16 @@ import { useEffect, useState } from 'react'
 import clsx from 'clsx'
 
 interface CheckboxCustomProps {
-  // checked: boolean;
+  checked: boolean;
   onChange?: (checked: boolean) => void;
 }
 
-const CheckboxCustom: React.FC<CheckboxCustomProps> = ({ onChange }) => {
+const CheckboxCustom: React.FC<CheckboxCustomProps> = ({ checked, onChange }) => {
   const [enabled, setEnabled] = useState(false);
 
-  // useEffect(() => {
-  //   setEnabled(checked);
-  // }, [checked]);
+  useEffect(() => {
+    setEnabled(checked);
+  }, [checked]);
 
   const handleChange = (value: boolean) => {
     setEnabled(value);

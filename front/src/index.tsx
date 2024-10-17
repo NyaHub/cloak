@@ -3,14 +3,18 @@ import App from './app/App';
 import { BrowserRouter } from 'react-router-dom';
 import './app/styles/index.scss';
 import { StrictMode } from 'react';
+import store from './services/store';
+import { Provider } from 'react-redux';
 
 const domNode = document.getElementById('root') as HTMLDivElement;
 const root = createRoot(domNode);
 
 root.render(
-  <BrowserRouter>
-   <StrictMode>
+  <StrictMode>
+    {/* <Provider store={store}> */}
+      <BrowserRouter>
         <App />
-   </StrictMode>
-  </BrowserRouter>
+      </BrowserRouter>
+   {/* </Provider> */}
+  </StrictMode>
 );

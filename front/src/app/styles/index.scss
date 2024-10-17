@@ -2,9 +2,21 @@
 @import "variables/global";
 @import "reset.scss";
 
-.App {
+.content {
     font-size: var(--font-m);
     background: var(--bg-color);
     padding: 30px 40px;
     min-height: 100vh;
+}
+
+@media screen and (max-width: 580px) {
+    .content {
+      padding: 30px;
+    }
+}
+
+@media screen and (max-width: 420px) {
+  .content {
+    padding: 20px;
+  }
 }

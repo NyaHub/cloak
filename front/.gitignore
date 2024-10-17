@@ -131,4 +131,5 @@ dist
 
 
 # production
-/build
+build
+dist

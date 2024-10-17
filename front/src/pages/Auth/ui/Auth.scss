@@ -55,4 +55,15 @@
     color: var(--primary-color);
     padding: 10px 16px;
     white-space: nowrap;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 500px) {
+    .LabelAuth,
+    .inputBlock {
+        width: 320px;
+    }
+    .title {
+        font-size: 20px;
+    }
 }

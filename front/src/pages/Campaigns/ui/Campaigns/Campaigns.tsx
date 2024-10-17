@@ -4,6 +4,32 @@ import { SearchInput } from '@/shared/ui/SearchInput/SearchInput'
 import { useState } from 'react'
 import { CampaignsIcon } from '../CampaignsIcon/CampaignsIcon'
 import { CampaignsCard } from '../CampaignsCard/CampaignsCard'
+import { format } from 'date-fns';
+
+
+const mockData = [
+  {
+    id: 1,
+    name: 'Campaign’s name',
+    page: 'google',
+    status: 'Active',
+    last_updated: format(new Date(), 'dd.MM.yyyy HH:mm'),
+    passed: 654,
+    total: 1000,
+    link: 'ghtht'
+  },
+  {
+    id: 2,
+    name: 'Campaign’s name',
+    page: 'facebook',
+    status: 'Deactivated',
+    last_updated: format(new Date(), 'dd.MM.yyyy HH:mm'),
+    passed: 100,
+    total: 1000,
+    link: 'ghtht'
+  }
+];
+
 
 const CampaignsPage = () => {
    const [searchQuery, setSearchQuery] = useState('');
@@ -23,7 +49,7 @@ const CampaignsPage = () => {
           onSearch={handleSearch}
       />
       <CampaignsIcon />
-      <CampaignsCard />
+      <CampaignsCard data={mockData}/>
     </div>
   )
 }

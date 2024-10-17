@@ -28,7 +28,7 @@ export const Navbar = () => {
             </NavLink>
         </div>
          <button onClick={handleLogout} className={cls.btnNav}>
-             <LogOut width={20} height={20}/>
+             <LogOut width={20} height={20} className={cls.icon}/>
                 Log out
         </button>
     </nav>

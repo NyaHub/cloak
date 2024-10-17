@@ -4,7 +4,7 @@ import './styles/reset.scss';
 const App = () => {
 
   return (
-    <div className='App'>
+    <div className='content'>
       <AppRouter />
     </div>
   )

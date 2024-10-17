@@ -31,3 +31,24 @@
     padding: 10px 16px;
     border-radius: 8px;
 }
+
+@media screen and (max-width: 560px) {
+ .btnNav,
+ .linkNav,
+ .linkNavTwo {
+    font-size: var(--font-size-s);
+ }
+ .btnNav {
+  padding: 8px 14px;
+ }
+ .icon {
+    width: 15px;
+    height: 15px;
+ }
+}
+
+@media screen and (max-width: 400px) {
+    .linkNavTwo {
+        margin-left: 10px;
+    }
+}
