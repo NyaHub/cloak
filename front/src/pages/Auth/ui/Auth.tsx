@@ -1,14 +1,14 @@
-import './Auth.scss'
+import classes from './Auth.module.css'
 
 const AuthPage = () => {
   return (
-    <div className='Auth'>
-     <div className='LabelAuth'>
-        <p className='title'>Authorization</p>
+    <div className={classes.Auth}>
+     <div className={classes.LabelAuth}>
+        <p className={classes.title}>Authorization</p>
      </div>
-     <div className='inputBlock'>
-       <input placeholder='Token' className='input'/>
-       <button className='btnLogin'>Log in</button>
+     <div className={classes.inputBlock}>
+       <input placeholder='Token' className={classes.input}/>
+       <button className={classes.btnLogin}>Log in</button>
      </div>
     </div>
   )

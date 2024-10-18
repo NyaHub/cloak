@@ -28,7 +28,7 @@ const initialState: CampaignState = {
 export const fetchCampaigns = createAsyncThunk(
     'campaigns/fetchCampaigns',
     async () => {
-        const response = await axios.get('/api/campaigns'); // замените на ваш URL
+        const response = await axios.get('');
         return response.data;
     }
 );

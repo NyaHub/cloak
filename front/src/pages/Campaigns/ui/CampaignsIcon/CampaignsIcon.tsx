@@ -1,4 +1,4 @@
-import  * as cls from  './CampaignsIcon.module.scss'
+import classes from  './CampaignsIcon.module.css'
 import { 
     ChartPie,
     Clock3, 
@@ -20,7 +20,7 @@ const icons: IconItem[] = [
 ];
 
 const IconWithText: React.FC<IconItem> = ({ Icon, text }) => (
-  <div className={cls.AllIcon}>
+  <div className={classes.AllIcon}>
     <Icon style={{ width: '18px', height: '18px' }} />
     {text}
   </div>
@@ -28,19 +28,20 @@ const IconWithText: React.FC<IconItem> = ({ Icon, text }) => (
 
 export const CampaignsIcon: React.FC = () => {
   return (
-    <div className={cls.CampaignsBlock}>
-      <div className={cls.Iconleft}>
+    <div className={classes.CampaignsIcon}>
+      <div className={classes.Iconleft}>
         <FolderPen style={{ width: '18px', height: '18px' }} />
         Name
       </div>
-      <div className={cls.IconBlock}>
-        <div className={cls.PageStatus}>
+      <div className={classes.IconBlock}>
+        <div className={classes.PageStatus}>
           {icons.slice(0, 2).map((icon, index) => (
             <IconWithText key={index} Icon={icon.Icon} text={icon.text} />
           ))}
         </div>
         {icons.slice(2).map((icon, index) => (
-          <IconWithText key={index} Icon={icon.Icon} text={icon.text} />
+          <IconWithText key={index} Icon={icon.Icon} text={icon.text}
+          />
         ))}
       </div>
     </div>

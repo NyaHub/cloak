@@ -3,7 +3,7 @@ import { Navbar } from '@/widgetes/Navbar'
 import { SearchInput } from '@/shared/ui/SearchInput/SearchInput'
 import { useState } from 'react'
 import { CampaignsIcon } from '../CampaignsIcon/CampaignsIcon'
-import { CampaignsCard } from '../CampaignsCard/CampaignsCard'
+import CampaignsCard  from '../CampaignsCard/CampaignsCard'
 import { format } from 'date-fns';
 
 
@@ -32,12 +32,12 @@ const mockData = [
 
 
 const CampaignsPage = () => {
-   const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState('');
 
   const handleSearch = (value: string) => {
-    console.log("Searching for:", value);
     setSearchQuery(value);
   };
+
    
   return (
     <div>
@@ -50,6 +50,13 @@ const CampaignsPage = () => {
       />
       <CampaignsIcon />
       <CampaignsCard data={mockData}/>
+      {/* <PaginationElement
+        onClickNext={onClickNextPage}
+        onClickPrevious={onClickPreviousPage}
+        onClick={onClickPage}
+        data={pages}
+        currentPage={page} 
+      /> */}
     </div>
   )
 }

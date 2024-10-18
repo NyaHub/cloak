@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom'
-import * as cls from './Navbar.module.scss'
+import classes from './Navbar.module.css'
 import clsx from 'clsx'
 import { LogOut } from 'lucide-react';
 import { RoutePath } from '@/app/providers/config/routeConfig';
@@ -12,23 +12,23 @@ export const Navbar = () => {
     };
 
    return (
-    <nav className={cls.Navbar}>
+    <nav className={classes.Navbar}>
         <div>
            <NavLink 
                 to={RoutePath.campaigns}
-                className={({ isActive }) => clsx(cls.linkNav, { [cls.active]: isActive })}
+                className={({ isActive }) => clsx(classes.linkNav, { [classes.active]: isActive })}
             >
                 Campaigns
             </NavLink>
             <NavLink 
                 to={RoutePath.create_campaign}
-                className={({ isActive }) => clsx(cls.linkNavTwo, { [cls.active]: isActive  })}
+                className={({ isActive }) => clsx(classes.linkNavTwo, { [classes.active]: isActive  })}
             >
                 Create campaign
             </NavLink>
         </div>
-         <button onClick={handleLogout} className={cls.btnNav}>
-             <LogOut width={20} height={20} className={cls.icon}/>
+         <button onClick={handleLogout} className={classes.btnNav}>
+             <LogOut width={20} height={20} className={classes.icon}/>
                 Log out
         </button>
     </nav>

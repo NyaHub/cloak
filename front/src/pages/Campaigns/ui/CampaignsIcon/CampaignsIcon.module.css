@@ -1,4 +1,4 @@
-.CampaignsBlock {
+.CampaignsIcon {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -36,4 +36,16 @@
 
 .Iconleft {
     margin-left: 45px;
+}
+
+@media screen and (max-width: 1200px) {
+  .IconBlock {
+    gap: 3rem;
+  }
+}
+
+@media screen and (max-width: 1130px) {
+    .CampaignsIcon {
+        display: none;
+    }
 }

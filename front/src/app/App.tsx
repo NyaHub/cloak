@@ -1,5 +1,5 @@
 import { AppRouter } from './providers';
-import './styles/reset.scss';
+import './styles/reset.css';
 
 const App = () => {
 

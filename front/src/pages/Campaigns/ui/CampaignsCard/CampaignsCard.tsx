@@ -1,71 +1,78 @@
 import CheckboxCustom from '@/shared/ui/Checkbox/Checkbox'
-import  * as cls from  './CampaignsCard.module.scss'
-import { useState } from 'react';
-import { Icon } from '@/shared/ui/Icon/Icon';
-import GoogleIcon from '@/shared/assets/icon/google.svg'
-import  {SemiCircleProgressWithIndicator } from 'react-progressbars-with-indicator';
+import classes from  './CampaignsCard.module.css'
+import { useEffect, useState } from 'react';
+import { ChartColumnDecreasing, CircleX, Download, Pen } from 'lucide-react';
+import { ActionButton } from '@/shared/ui/ActionButton/ActionButton';
+import CampaignItem, { CampaignData } from '../CampaignItem/CampaignItem';
 
-interface CampaignData {
-    id: number;
-    name: string;
-    page: string;
-    status: string;
-    last_updated: string;
-    passed: number;
-    total: number;
-    link: string;
-}
+const actionButtonsData = [
+  { icon: <Download style={{ width: '18px' }} />, label: 'Code' },
+  { icon: <ChartColumnDecreasing style={{ width: '18px' }} />, label: 'Stats' },
+  { icon: <Pen style={{ width: '18px' }} />, label: 'Edit' },
+  { icon: <CircleX style={{ width: '18px' }} />, label: 'Delete' },
+];
+
+const ActionButtonGroup: React.FC<{ className: string }> = ({ className }) => (
+  <>
+    {actionButtonsData.map(({ icon, label }, index) => (
+      <ActionButton key={index} icon={icon} label={label} className={className}/>
+    ))}
+  </>
+);
 
 interface CampaignsCardProps {
     data: CampaignData[];
 }
+ 
+const CampaignsCard: React.FC<CampaignsCardProps> = ({ data }) => {
+     // Состояние для отслеживания активного индекса карточки
+    const [activeIndex, setActiveIndex] = useState<number | null>(null);
+    const [showButtons, setShowButtons] = useState(false);
 
-export const CampaignsCard: React.FC<CampaignsCardProps> = ({ data }) => {
-    //  массив состояний для отслеживания, уменьшена ли карточка
-    const [reducedCards, setReducedCards] = useState<boolean[]>(new Array(data.length).fill(false));
-
-    const [isReduced, setIsReduced] = useState(false);
+    useEffect(() => {
+    if (activeIndex !== null) {
+        setShowButtons(true);
+    } else {
+        setShowButtons(false);
+    }
+    }, [activeIndex]);
 
     const handleCheckboxChange = (index: number) => {
-        const newReducedCards = [...reducedCards];
-        newReducedCards[index] = !newReducedCards[index]; // Переключаем состояние по индексу
-        setReducedCards(newReducedCards);
+        // активный индекс или сбрасываем, если уже выбранный
+        setActiveIndex(activeIndex === index ? null : index);
     };
 
     return (
-         <div className={cls.CampaignsContent}>
-            {data.map((campaign, index) => (
-                <div key={campaign.id} className={cls.cardContainer}>
-                    <CheckboxCustom
-                        checked={reducedCards[index]}
-                        onChange={() => handleCheckboxChange(index)} 
-                    />
-                    <div className={cls.CampaignsCard} style={{ width: reducedCards[index] ? '70%' : '100%' }}>
-                        <p className={cls.title}>{campaign.name}</p>
-                        <div className={cls.cardBlock}>
-
-                            <div className={cls.IconBtn}>
-                                <Icon Svg={GoogleIcon} />
-                                <button className={cls.status}>{campaign.status}</button>
-                            </div>
-
-                            <div className={cls.data}>
-                                <span className={cls.text}>{campaign.last_updated}</span>
-                                <div className={cls.circle}>
-                                    <SemiCircleProgressWithIndicator
-                                        percentage={(campaign.passed / campaign.total) * 100}
-                                        indicatorPercentage={50}
-                                        strokeWidth={5}
-                                        strokeColor="#f00"
-                                        indicatorColor="#f00"
-                                    />
-                                    <span className={cls.textPass}>passed</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            ))}
+    <div className={classes.CampaignsContent}>
+    {data.map((campaign, index) => (
+      <div key={campaign.id} className={classes.cardContainer}>
+        <CheckboxCustom
+          checked={activeIndex === index}
+          onChange={() => handleCheckboxChange(index)}
+          className={classes.remobeCheckbox}
+        />
+        <div
+          className={`${classes.CampaignsCard} ${activeIndex === null || activeIndex !== index ? classes.fullWidth : classes.partialWidth}`}
+        >
+          <CampaignItem campaign={campaign} />
+          
+          <div className={classes.mobileBlock}>
+            <span className={classes.title}>Actions</span>
+            <div className={classes.grid}>
+               <ActionButtonGroup className={classes.btnMobile} />
+            </div>
+          </div>
         </div>
+
+        {activeIndex === index && (
+          <div className={`${classes.buttonContainer} ${showButtons ? classes.show : ''}`}>
+            <ActionButtonGroup className={classes.btnDesk} />
+          </div>
+        )}
+      </div>
+    ))}
+  </div>
     );
 };
+
+export default CampaignsCard;

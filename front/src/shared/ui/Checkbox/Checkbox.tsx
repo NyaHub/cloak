@@ -1,15 +1,16 @@
 import { Checkbox } from '@headlessui/react'
 import { Check } from 'lucide-react'
-import  * as cls from  './Checkbox.module.scss'
+import classes from  './Checkbox.module.css'
 import { useEffect, useState } from 'react'
 import clsx from 'clsx'
 
 interface CheckboxCustomProps {
+  className?: string;
   checked: boolean;
   onChange?: (checked: boolean) => void;
 }
 
-const CheckboxCustom: React.FC<CheckboxCustomProps> = ({ checked, onChange }) => {
+const CheckboxCustom: React.FC<CheckboxCustomProps> = ({ className, checked, onChange }) => {
   const [enabled, setEnabled] = useState(false);
 
   useEffect(() => {
@@ -27,9 +28,9 @@ const CheckboxCustom: React.FC<CheckboxCustomProps> = ({ checked, onChange }) =>
     <Checkbox
       checked={enabled}
       onChange={() => handleChange(!enabled)}
-      className={({ checked }) => clsx(cls.checkbox, { [cls.checked]: checked })}
+      className={({ checked }) => clsx(classes.checkbox, className, { [classes.checked]: checked })}
     >
-      <Check className={cls.check} />
+      <Check className={classes.check} />
     </Checkbox>
   );
 };

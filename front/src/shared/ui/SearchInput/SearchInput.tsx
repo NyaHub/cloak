@@ -1,5 +1,5 @@
 import { Search } from 'lucide-react';
-import * as cls from './SearchInput.module.scss';
+import classes from './SearchInput.module.css';
 import { InputHTMLAttributes, memo } from 'react';
 
 interface SearchInputProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -15,21 +15,21 @@ export const SearchInput = memo(({ onSearch, className, ...inputProps }: SearchI
     };
 
     return (
-        <div className={`${cls.blockSearch} ${className}`}>
-            <div className={cls.block}>
-            <div className={cls.IconSearch}>
+        <div className={`${classes.blockSearch} ${className}`}>
+            <div className={classes.block}>
+            <div className={classes.IconSearch}>
             <Search 
-              className={cls.iconSearch}
+              className={classes.iconSearch}
               width={20} 
               height={20}
             />
             <input
                 placeholder="Search campaigns"
-                className={cls.Search}
+                className={classes.Search}
                 {...inputProps} // Передаем остальные пропсы, включая значение
             />
             </div>
-            <button onClick={handleSearch} className={cls.searchBtn}>
+            <button onClick={handleSearch} className={classes.searchBtn}>
                 Search
             </button>
             </div>
