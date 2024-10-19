@@ -1,0 +1,36 @@
+.switch {
+    position: relative;
+    display: flex;
+    cursor: pointer;
+    height: 22px;
+    width: 42px;
+    border-radius: 50px;
+    background-color: var(--block-color);
+    border: none;
+    padding: 3px;
+    transition-property: background-color, border-color;
+    transition-duration: 200ms;
+    transition-timing-function: ease-in-out;
+}
+
+.switch:focus {
+    outline: 1px solid transparent; /* focus:outline-none */
+}
+
+.slider {
+    pointer-events: none;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    transform: translateX(0);
+    border-radius: 9999px;
+    background-color: var(--bg-color);
+    box-shadow: none; 
+    transition: all 0.2s ease-in-out;
+    transition-duration: 200ms;
+    transition-timing-function: ease-in-out;
+}
+
+.slider.checked {
+    transform: translateX(1.3rem); /* 28px */
+}

@@ -45,8 +45,9 @@ const CampaignItem: React.FC<CampaignItemProps> = ({ campaign }) => {
                                 percentage={(campaign.passed / campaign.total) * 100}
                                 indicatorPercentage={50}
                                 strokeWidth={5}
-                                strokeColor="#f00"
-                                indicatorColor="#f00"
+                                strokeColor={campaign.passed / campaign.total * 100 >= 50 ? '#27AE60' : '#E64800'} 
+                                indicatorColor={campaign.passed / campaign.total * 100 >= 50 ? '#27AE60' : '#E64800'}
+                                // label={`${Math.round((campaign.passed / campaign.total) * 100)}%`} 
                             />
                             <span className={classes.textPass}>passed</span>
                         </div>

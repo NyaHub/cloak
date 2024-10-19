@@ -1,0 +1,28 @@
+.inputContainer {
+    row-gap: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.titleSpan {
+    color:  var(--btn-background);
+}
+
+.selectTitle,
+.spanCheck  {
+    color: var(--primary-color);
+}
+
+.spanCheck {
+    font-size: var(--font-size-s);
+}
+
+.checkSpan {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.placeholder::placeholder {
+  color: var(--block-color);
+}

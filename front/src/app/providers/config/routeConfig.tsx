@@ -1,5 +1,6 @@
 import { AuthPage } from '@/pages/Auth';
 import { CampaignsPage } from '@/pages/Campaigns';
+import { CreateCampaignsPage } from '@/pages/CreateCampaign';
 import { RouteProps } from 'react-router-dom';
 
 
@@ -31,7 +32,7 @@ export const routeConfig: Record<AppRoutes, RouteProps> = {
   },
   [AppRoutes.CREATE_CAMPAIGNS]: {
     path: RoutePath.create_campaign,
-    element: <></>
+    element: <CreateCampaignsPage />
   },
   [AppRoutes.STATISTICS]: {
     path: RoutePath.statistics,

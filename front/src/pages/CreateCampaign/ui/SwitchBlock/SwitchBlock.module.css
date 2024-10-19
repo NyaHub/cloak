@@ -1,0 +1,16 @@
+.switchBlock {
+    display: flex;
+    gap: 25px;
+}
+
+.switchItem {
+    display: flex;
+    align-items: center;
+}
+
+.title {
+    margin-left: 10px;
+    color: var(--primary-color);
+    font-size: var(--font-size-m);
+    white-space: nowrap;
+}

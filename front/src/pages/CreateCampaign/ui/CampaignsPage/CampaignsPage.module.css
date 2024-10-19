@@ -1,0 +1,14 @@
+.inputContainer {
+   row-gap: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.selectTitle {
+    color: var(--primary-color);
+}
+
+
+.placeholder::placeholder {
+  color: var(--block-color);
+}

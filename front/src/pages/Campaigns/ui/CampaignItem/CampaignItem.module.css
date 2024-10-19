@@ -143,3 +143,41 @@
         gap: 20px;
     }
 }
+
+@media screen and (max-width: 520px) {
+    .mobileBlock {
+        gap: 10px;
+    }
+    .title {
+        margin: 5px 0;
+    }
+    .cardBlock {
+        gap: 1.2rem;
+        align-items: center
+    }
+    .IconBtn  {
+     gap: 15px;
+    }
+    .data {
+        gap: 15px;
+    }
+    .span,
+    .text,
+    .status {
+        font-size: var(--font-size-s);
+    }
+    .circle {
+        width: 50px;
+    }
+    .textPass {
+        top: 42px;
+        left: 9px;
+        font-size: 10px;
+    }
+    .column {
+        gap: 8px;
+    }
+    .status {
+        width: auto;
+    }
+}
