@@ -1,13 +1,51 @@
 .StatisticsCard {
     display: flex;
-    margin-top: 30px;
-    gap: 80px;
-    padding: 10px 16px;
+    padding: 12px 16px;
+    flex-direction: column;
+    position: relative;
+    margin-top: 5px;
 }
 
 .StatisticsCard:hover {
-   border: 1px solid #64798C;
+   border: 1px solid var(--label);
    border-radius: 8px;
+   border-top-left-radius: 3px;
+   border-bottom-left-radius: 3px;
+   border-left: none;
+   border-top: 1px solid var(--secondory-color);
+   border-right: 1px solid var(--secondory-color);
+   border-bottom: 1px solid var(--block-color);
+}
+
+.indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.indicator.green {
+    background-color: green;
+}
+
+.indicator.red {
+    background-color: red;
+}
+
+.StatisticsCard.active,
+.content.active,
+.arrowContent.active {
+    background-color: var(--label);
+    border-radius: 8px;
+}
+
+.content {
+    display: flex;
+    gap: 80px;
+    flex-grow: 1;
 }
 
 .title {
@@ -17,12 +55,98 @@
 
 .span {
     color: var(--primary-color);
-    font-size: 18px;
+    font-size: 16px;
     margin-top: 5px;
+    flex-wrap: wrap;
+    display: flex;
 }
 
 .column {
     display: flex;
     flex-direction: column;
     width: 120px;
+}
+
+.device {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.btnBlock {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.btn {
+    border: 1px solid #64798C;
+    border-radius: 8px;
+    background: none;
+    color: var(--primary-color);
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    bottom: 5px;
+}
+
+.btn.active {
+    background-color: var(--bg-color);
+    border: 1px solid #344452;
+}
+
+.arrowContent {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 80px;
+}
+
+@media screen and (max-width: 900px) {
+    .content,
+    .arrowContent {
+        gap: 10px;
+    }
+}
+
+@media screen and (max-width: 710px) {
+    .content,
+    .arrowContent {
+        display: grid;
+        grid-template-columns: 150px 150px;
+    }
+    .btn {
+        bottom: 68px;
+    }
+    .StatisticsCard:hover {
+       border: none;
+       border-radius: 0;
+    }
+.StatisticsCard {
+   border: 1px solid var(--label);
+   border-radius: 8px;
+   border-top-left-radius: 3px;
+   border-bottom-left-radius: 3px;
+   border-left: none;
+   border-top: 1px solid var(--secondory-color);
+   border-right: 1px solid var(--secondory-color);
+   border-bottom: 1px solid var(--block-color);
+}
+}
+
+@media screen and (max-width: 500px) {
+    .content,
+    .arrowContent {
+        display: grid;
+        grid-template-columns: 100px 100px;
+        column-gap: 20px;
+    }
+  .column {
+    width: 100px;
+  }
 }

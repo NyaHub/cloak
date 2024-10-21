@@ -7,6 +7,13 @@
     margin-right: 10px;
 }
 
+.selectContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
 .select {
     background: none;
     outline: none;
@@ -15,9 +22,20 @@
     border: 1px solid var(--block-color);
     width: 100%;
     border-radius: 10px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.arrow {
+    position: absolute;
+    right: 6px;
+    bottom: 7px;
+    color: var(--primary-color);
+    
 }
 
 .option {
-    color: var(--inverted-primary-color);
+    color: var(--primary-color);
     background: var(--label);
 }

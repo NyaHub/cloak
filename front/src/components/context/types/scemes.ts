@@ -23,7 +23,7 @@ export interface ICampaign {
     device_devices: string,
     referer_referers: string,
     filter_empty_referer: number,
-    status: number,
+    // status: number,
     last_updated: string,
     link: string,
     passed: number,
@@ -95,7 +95,7 @@ export interface ICampaignUpdatePagesBody {
 
 export interface ICampaignUpdateStatusBody {
     id: number,
-    status: string
+    // status: string
 }
 
 export interface IStats {
@@ -111,5 +111,7 @@ export interface IStats {
     os: string,
     browser: string,
     created_at: string,
-    type_page: string
+    type_page: string,
+    // status: 'Active' | 'Deactivated';
+    status: string;
 }

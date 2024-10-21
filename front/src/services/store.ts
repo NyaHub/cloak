@@ -10,6 +10,7 @@ import {
 
 export const rootReducer = combineReducers({
 //   campaigns: campaignReducer,
+    //  auth: authReducer,
 });
 
 export const store = configureStore({

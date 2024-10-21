@@ -1,5 +1,6 @@
 import { ChangeEvent, useMemo } from 'react';
 import classes from  './Select.module.css'
+import { ChevronDown } from 'lucide-react';
 
 export interface SelectOption <T extends string>{
   value: T;
@@ -45,6 +46,7 @@ export const Select = <T extends string>(props: SelectProps<T>) => {
           {label}
         </span>
       )}
+       <div className={classes.selectContainer}>
       <select
         className={classes.select}
         value={value}
@@ -52,6 +54,8 @@ export const Select = <T extends string>(props: SelectProps<T>) => {
       >
         {optionList}
       </select>
+      <span className={classes.arrow}><ChevronDown size={14}/></span>
+       </div>
     </div>
   )
 }

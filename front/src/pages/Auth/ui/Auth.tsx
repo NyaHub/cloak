@@ -3,8 +3,9 @@ import classes from './Auth.module.css'
 import React, { useState } from 'react';
 
 const AuthPage: React.FC = () => {
-  const [token, setToken] = useState('');
+  const [token, setToken] = useState<string>('');
   const navigate = useNavigate();
+  // const {login, isLoading, error, errors} = useLogin(token)
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setToken(event.target.value);
@@ -12,7 +13,7 @@ const AuthPage: React.FC = () => {
 
     const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
       if (event.key === 'Enter') {
-        navigate('/campaigns'); // Перенаправление на /campaigns при нажатии Enter
+        navigate('/campaigns');
        }
     };
   
@@ -23,6 +24,7 @@ const AuthPage: React.FC = () => {
             </div>
             <div className={classes.inputBlock}>
                 <input
+                    type="text"
                     placeholder='Token'
                     className={classes.input}
                     value={token}
