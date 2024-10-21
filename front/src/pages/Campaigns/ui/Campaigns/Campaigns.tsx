@@ -47,6 +47,7 @@ const CampaignsPage = () => {
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           onSearch={handleSearch}
+          placeholder='Search campaigns'
       />
       <CampaignsIcon />
       <CampaignsCard data={mockData}/>

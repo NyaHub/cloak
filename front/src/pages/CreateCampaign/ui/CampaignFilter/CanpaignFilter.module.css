@@ -26,3 +26,7 @@
 .placeholder::placeholder {
   color: var(--block-color);
 }
+
+.siz {
+    width: 20px;
+}

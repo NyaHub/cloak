@@ -14,7 +14,11 @@
 }
 
 .switch:focus {
-    outline: 1px solid transparent; /* focus:outline-none */
+    outline: 1px solid transparent;
+}
+
+.switch.check {
+    background-color: var(--active-color-btn);
 }
 
 .slider {
@@ -32,5 +36,6 @@
 }
 
 .slider.checked {
-    transform: translateX(1.3rem); /* 28px */
+    transform: translateX(1.3rem);
+    background-color: var(--primary-color);
 }

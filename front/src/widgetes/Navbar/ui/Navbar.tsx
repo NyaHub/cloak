@@ -1,14 +1,15 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import classes from './Navbar.module.css'
 import clsx from 'clsx'
 import { LogOut } from 'lucide-react';
 import { RoutePath } from '@/app/providers/config/routeConfig';
 
-export const Navbar = () => {
+export const Navbar: React.FC = () => {
+    const navigate = useNavigate();
 
     const handleLogout = () => {
         // Логика для выхода из системы
-        console.log('Logout');
+        navigate('/');
     };
 
    return (

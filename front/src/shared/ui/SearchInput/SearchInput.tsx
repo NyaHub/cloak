@@ -5,9 +5,10 @@ import { InputHTMLAttributes, memo } from 'react';
 interface SearchInputProps extends InputHTMLAttributes<HTMLInputElement> {
     onSearch: (value: string) => void; // Функция поиска
     className?: string;
+    placeholder?: string;
 }
 
-export const SearchInput = memo(({ onSearch, className, ...inputProps }: SearchInputProps) => {
+export const SearchInput = memo(({ onSearch, className, placeholder, ...inputProps }: SearchInputProps) => {
     const handleSearch = () => {
         if (inputProps.value) {
             onSearch(inputProps.value as string);
@@ -24,9 +25,9 @@ export const SearchInput = memo(({ onSearch, className, ...inputProps }: SearchI
               height={20}
             />
             <input
-                placeholder="Search campaigns"
+                placeholder={placeholder}
                 className={classes.Search}
-                {...inputProps} // Передаем остальные пропсы, включая значение
+                {...inputProps}
             />
             </div>
             <button onClick={handleSearch} className={classes.searchBtn}>

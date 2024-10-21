@@ -1,4 +1,3 @@
-
 import CanpaignFilter from '../CampaignFilter/CampaignFilter';
 import CampaignsPage from '../CampaignsPage/CampaignsPage';
 import { SwitchBlock } from '../SwitchBlock/SwitchBlock';

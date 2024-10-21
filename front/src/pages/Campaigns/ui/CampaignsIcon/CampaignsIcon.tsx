@@ -27,6 +27,7 @@ const IconWithText: React.FC<IconItem> = ({ Icon, text }) => (
 );
 
 export const CampaignsIcon: React.FC = () => {
+  
   return (
     <div className={classes.CampaignsIcon}>
       <div className={classes.Iconleft}>

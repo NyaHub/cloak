@@ -22,3 +22,16 @@
 .pages {
     grid-column: 2;
 }
+
+
+@media screen and (max-width: 840px) {
+  .CreateCampaignContent {
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
+  }
+   .filterBlock,
+   .pages {
+   margin-left: 0;
+   }
+} 

@@ -12,3 +12,83 @@
 .placeholder::placeholder {
   color: var(--block-color);
 }
+
+.ckeckBlock {
+  display: flex;
+  gap: 30px;
+}
+
+.gap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.selectTitle {
+  color: var(--primary-color);
+}
+
+.title {
+  font-size: 20px;
+  color: var(--primary-color);
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.btnContainer {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: var(--font-size-m);
+  border: none;
+  cursor: pointer;
+}
+
+.btnSave {
+  background: var(--active-color-btn);
+  color: var(--primary-color);
+}
+
+.btnSave:hover {
+  background: var(--active-btn);
+}
+
+.btnDis {
+  background: var(--deactiveted-color-btn);
+  color: var(--primary-color);
+}
+
+.btnDis:hover {
+  background: var(--deactiveted-btn);
+}
+
+
+@media screen  and (max-width: 500px) {
+  .btnContainer {
+    flex-direction: row-reverse;
+  }
+  .btn {
+    padding: 6px 12px;
+  }
+  .btnSave {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media screen  and (max-width: 400px){
+  .ckeckBlock {
+    gap: 15px;
+  }
+}

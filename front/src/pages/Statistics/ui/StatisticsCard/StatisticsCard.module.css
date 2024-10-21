@@ -1,0 +1,28 @@
+.StatisticsCard {
+    display: flex;
+    margin-top: 30px;
+    gap: 80px;
+    padding: 10px 16px;
+}
+
+.StatisticsCard:hover {
+   border: 1px solid #64798C;
+   border-radius: 8px;
+}
+
+.title {
+    color: #64798C;
+    font-size: 16px;
+}
+
+.span {
+    color: var(--primary-color);
+    font-size: 18px;
+    margin-top: 5px;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    width: 120px;
+}

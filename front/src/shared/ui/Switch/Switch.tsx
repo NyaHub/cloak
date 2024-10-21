@@ -12,7 +12,7 @@ export const SwitchCustom: React.FC<SwitchCustomProps> = ({ enabled, setEnabled 
     <Switch
       checked={enabled}
       onChange={setEnabled}
-      className={`${classes.switch} group`}
+      className={`${classes.switch} ${enabled ? classes.check : ''}`}
     >
       <span
         aria-hidden="true"

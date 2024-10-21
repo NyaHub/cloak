@@ -25,14 +25,14 @@ const CanpaignFilter = () => {
                <span className={classes.selectTitle}>Geo filter</span>
                <Select />
                 <div className={classes.checkSpan}>
-                    <CheckboxCustom checked /> 
+                    <CheckboxCustom checked={false} /> 
                     <span className={classes.spanCheck}>Allow Geo filter</span>
                </div>
 
                 <span className={classes.selectTitle}>Device filter</span>
                <Select/>
                <div className={classes.checkSpan}>
-                    <CheckboxCustom checked /> 
+                    <CheckboxCustom checked={false} /> 
                     <span className={classes.spanCheck}>Allow Device filter</span>
                </div>
 
@@ -42,7 +42,7 @@ const CanpaignFilter = () => {
                    className={classes.placeholder}
                 />
                <div className={classes.checkSpan}>
-                    <CheckboxCustom checked /> 
+                    <CheckboxCustom checked={false} /> 
                     <span className={classes.spanCheck}>Allow Referer filter</span>
                </div>
         </div>

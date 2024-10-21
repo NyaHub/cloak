@@ -58,6 +58,10 @@
     cursor: pointer;
 }
 
+.btnLogin:focus-visible {
+    outline: none;
+}
+
 @media screen and (max-width: 500px) {
     .LabelAuth,
     .inputBlock {

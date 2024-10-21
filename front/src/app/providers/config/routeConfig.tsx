@@ -1,6 +1,8 @@
 import { AuthPage } from '@/pages/Auth';
 import { CampaignsPage } from '@/pages/Campaigns';
 import { CreateCampaignsPage } from '@/pages/CreateCampaign';
+import { NotFound } from '@/pages/NotFound';
+import { StatisticsPage } from '@/pages/Statistics';
 import { RouteProps } from 'react-router-dom';
 
 
@@ -36,10 +38,10 @@ export const routeConfig: Record<AppRoutes, RouteProps> = {
   },
   [AppRoutes.STATISTICS]: {
     path: RoutePath.statistics,
-    element: <></>
+    element: <StatisticsPage/>
   },
   [AppRoutes.NOT_FOUND]: {
-    path: RoutePath.not_found,
-    element: <></>
+    path: '*',
+    element: <NotFound />
   }
 }
