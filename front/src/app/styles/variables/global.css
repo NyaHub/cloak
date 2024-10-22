@@ -1,0 +1,18 @@
+:root {
+    --font-family-main: "Roboto", sans-serif;
+    --font-size-s: 12px;
+    --font-size-m: 14px;
+    --font-size-l: 24px;
+
+    --bg-color: #1D2B39;
+    --block-color: #425A6F;
+    --label: #2C3F4F;
+    --btn-background: #64798C;
+    --primary-color: #FFFFFF;
+    --secondory-color: #64798C;
+
+    --active-btn: #2B5552;
+    --active-color-btn: #28AE60;
+    --deactiveted-btn: #473B45;
+    --deactiveted-color-btn: #E85A48;
+}

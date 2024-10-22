@@ -1,0 +1,32 @@
+.switchBlock {
+    display: flex;
+    gap: 25px;
+}
+
+.switchItem {
+    display: flex;
+    align-items: center;
+}
+
+.title {
+    margin-left: 10px;
+    color: var(--primary-color);
+    font-size: var(--font-size-m);
+    white-space: nowrap;
+}
+
+.titleSpan {
+    color:  var(--btn-background);
+}
+
+.inputSpan {
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 1300px){
+    .switchBlock {
+        flex-direction: column;
+    }
+}

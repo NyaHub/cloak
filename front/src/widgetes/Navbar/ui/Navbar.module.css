@@ -1,0 +1,54 @@
+.Navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.linkNav,
+.linkNavTwo {
+    cursor: pointer;
+}
+
+.linkNavTwo {
+    margin-left: 20px;
+}
+
+.btnNav {
+    background: none;
+    border: 1px solid var(--secondory-color);
+    color: var(--primary-color);
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: var(--font-size-m);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.active {
+    background-color: var(--block-color);
+    padding: 10px 16px;
+    border-radius: 8px;
+}
+
+@media screen and (max-width: 560px) {
+ .btnNav,
+ .linkNav,
+ .linkNavTwo {
+    font-size: var(--font-size-s);
+ }
+ .btnNav {
+  padding: 8px 14px;
+ }
+ .icon {
+    width: 15px;
+    height: 15px;
+ }
+}
+
+@media screen and (max-width: 400px) {
+    .linkNavTwo {
+        margin-left: 10px;
+    }
+}

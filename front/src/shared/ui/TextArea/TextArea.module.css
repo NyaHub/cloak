@@ -1,0 +1,10 @@
+.textArea {
+    background: none;
+    border: 1px solid var(--block-color);
+    color: var(--primary-color);
+    border-radius: 10px;
+    width: 100%;
+    padding: 10px 15px;
+    outline: none;
+    resize: vertical; 
+}

@@ -1,0 +1,14 @@
+.Input {
+    background: none;
+    border: 1px solid var(--block-color);
+    color: var(--primary-color);
+    border-radius: 8px;
+    padding: 8px 16px;
+    appearance: none;
+    outline: none;
+    width: 100%;
+}
+
+.readonly {
+    opacity: 0.7;
+}
