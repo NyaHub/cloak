@@ -6,6 +6,10 @@ import { ActionButton } from '@/shared/ui/ActionButton/ActionButton';
 import CampaignItem, { CampaignData } from '../CampaignItem/CampaignItem';
 import {  useNavigate } from 'react-router-dom';
 
+interface ActionButtonGroupprops {
+  className: string;
+}
+
 const actionButtonsData = [
   { icon: <Download style={{ width: '18px' }} />, label: 'Code' },
   { icon: <ChartColumnDecreasing style={{ width: '18px' }} />, label: 'Stats' },
@@ -13,7 +17,7 @@ const actionButtonsData = [
   { icon: <CircleX style={{ width: '18px' }} />, label: 'Delete' },
 ];
 
-const ActionButtonGroup: React.FC<{ className: string }> = ({ className }) => {
+const ActionButtonGroup = ({className}: ActionButtonGroupprops) => {
   const navigate = useNavigate();
 
   const handleButtonClick = (label: string) => {
@@ -44,7 +48,7 @@ interface CampaignsCardProps {
 const CampaignsCard: React.FC<CampaignsCardProps> = ({ data }) => {
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
     const [showButtons, setShowButtons] = useState(false);
-
+    
     useEffect(() => {
       setShowButtons(activeIndex !== null);
     }, [activeIndex]);

@@ -13,6 +13,7 @@ interface SelectProps <T extends string>{
   options?: SelectOption<T>[];
   value?: T;
   onChange?: (value: T) => void;
+  disabled?: boolean;
 }
 
 export const Select = <T extends string>(props: SelectProps<T>) => {
@@ -22,6 +23,7 @@ export const Select = <T extends string>(props: SelectProps<T>) => {
     options,
     onChange,
     value,
+    disabled,
   } = props;
 
   const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
@@ -51,6 +53,7 @@ export const Select = <T extends string>(props: SelectProps<T>) => {
         className={classes.select}
         value={value}
         onChange={onChangeHandler}
+        disabled={disabled}
       >
         {optionList}
       </select>

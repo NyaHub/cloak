@@ -5,7 +5,6 @@ import classes from  './CreateCampaignContent.module.css'
 
 
 const CreateCampaignContent = () => {
-
     
    return (
     <div className={classes.CreateCampaignContent}>

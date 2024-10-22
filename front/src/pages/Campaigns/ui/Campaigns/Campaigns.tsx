@@ -1,13 +1,19 @@
 import { Label } from '@/shared/ui/Label/Label'
 import { Navbar } from '@/widgetes/Navbar'
 import { SearchInput } from '@/shared/ui/SearchInput/SearchInput'
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { CampaignsIcon } from '../CampaignsIcon/CampaignsIcon'
 import CampaignsCard  from '../CampaignsCard/CampaignsCard'
 import { format } from 'date-fns';
+import Pagination from '@/components/controls/pagination'
 
 
-const mockData = [
+const CampaignsPage = () => {
+  const [searchQuery, setSearchQuery] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 10;
+
+  const mockData = [
   {
     id: 1,
     name: 'Campaign’s name',
@@ -30,13 +36,21 @@ const mockData = [
   }
 ];
 
+   const handleSearch = (value: string) => {
+      setSearchQuery(value);
+    };
 
-const CampaignsPage = () => {
-  const [searchQuery, setSearchQuery] = useState('');
+  const filteredData = mockData.filter(item => 
+    item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    item.page.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    item.status.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
-  const handleSearch = (value: string) => {
-    setSearchQuery(value);
-  };
+    // Определяем текущие элементы для отображения
+  const currentData = useMemo(() => {
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    return filteredData.slice(startIndex, startIndex + itemsPerPage);
+  }, [filteredData, currentPage]);
 
    
   return (
@@ -47,17 +61,16 @@ const CampaignsPage = () => {
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           onSearch={handleSearch}
-          placeholder='Search campaigns'
-      />
+          placeholder='Search stats'
+        />
       <CampaignsIcon />
-      <CampaignsCard data={mockData}/>
-      {/* <PaginationElement
-        onClickNext={onClickNextPage}
-        onClickPrevious={onClickPreviousPage}
-        onClick={onClickPage}
-        data={pages}
-        currentPage={page} 
-      /> */}
+      <CampaignsCard data={currentData} />
+      <Pagination
+        totalItems={filteredData.length}
+        itemsPerPage={itemsPerPage}
+        currentPage={currentPage}
+        onPageChange={setCurrentPage}
+      />
     </div>
   )
 }

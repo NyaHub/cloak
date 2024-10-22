@@ -17,7 +17,7 @@
 .select {
     background: none;
     outline: none;
-    padding: 7px;
+    padding: 7px 0 7px 15px;
     color: var(--primary-color);
     border: 1px solid var(--block-color);
     width: 100%;
