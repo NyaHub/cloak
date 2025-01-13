@@ -11,7 +11,7 @@ export class UserController {
         return user.dataValues
     }
 
-    async login(token: string, session: Session): Promise<IUser> {
+    async login(token: string, session: Session): Promise<{ user: IUser, authToken: string }> {
         const user = await User.findOne({
             where: {
                 token
@@ -22,11 +22,14 @@ export class UserController {
             uuid: user.dataValues.id
         })
 
-        return user.dataValues
+        return {
+            user: user.dataValues,
+            authToken: session.authtoken
+        }
     }
 
     async get(uuid: string, user: IUser): Promise<IUser> {
-        if (uuid === user.id) {
+        if (uuid === user.id || !uuid) {
             return user
         }
 
@@ -38,7 +41,7 @@ export class UserController {
     }
 
     async edit(uuid: string, user: IUser, creator: IUser): Promise<IUser> {
-        let id = uuid || user.id
+        let id = uuid || user.id || creator.id
         let ed
         if (creator.allowance > Allowance.Admin) {
             ed = {
@@ -85,5 +88,11 @@ export class UserController {
         })
 
         return (await User.findByPk(uuid)).dataValues
+    }
+
+    async getUsers() {
+        let users = await User.findAll()
+
+        return users
     }
 }

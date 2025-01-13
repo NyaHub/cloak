@@ -1,7 +1,7 @@
 import { getPublic, generatePrivate, verify, sign } from "eccrypto"
 import { NextFunction, Request, Response } from "express"
 import { sha256 } from "./utils"
-import { IUser, User } from "./database"
+import { Allowance, DefaultUser, IUser, User } from "./database"
 import { Model } from "sequelize"
 
 
@@ -20,11 +20,12 @@ export class Session {
     public errors: string[] = []
     private _data: JWTdata
     public res: Response
-    private IsAuth: boolean = false
+    public isAuth: boolean = false
     public cUser: IUser
+    private authToken: string = ""
 
-    get isAuth() {
-        return this.IsAuth
+    get authtoken() {
+        return this.authToken
     }
 
     get data() {
@@ -33,7 +34,7 @@ export class Session {
 
     async setData(v: JWTdata) {
         this._data = v
-        this.IsAuth = true
+        this.isAuth = true
         await this.sign()
     }
 
@@ -58,7 +59,8 @@ export class Session {
         const data = Buffer.from(JSON.stringify(this._data)).toString("base64")
         const hash = sha256(JSON.stringify(this._data))
         let sig = (await sign(this.privateKey, hash)).toString("base64")
-        this.res.cookie(this.name, `${data}.${sig}`)
+        this.authToken = `${data}.${sig}`
+        this.res.cookie(this.name, this.authToken)
     }
 
     async verify(token: string): Promise<boolean> {
@@ -67,7 +69,6 @@ export class Session {
         try {
             await verify(this.publicKey, hash, sig)
             this._data = JSON.parse(data.toString())
-            this.IsAuth = true
             return true
         } catch (e) {
             return false
@@ -85,14 +86,20 @@ export function session(pk: string, name: string) {
 
         const token: string = req?.body?.authToken || req.cookies[name] || req.headers["authorization"]
 
+        console.log(token)
 
         if (!token || !await sess.verify(token)) {
+
+            sess.cUser = DefaultUser
+
             return next()
         }
 
         try {
             sess.cUser = (await User.findByPk(sess.data.uuid)).dataValues
+            sess.isAuth = true
         } catch (error) {
+            sess.cUser = DefaultUser
             console.log(error.message)
         }
 
